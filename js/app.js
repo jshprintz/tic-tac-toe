@@ -11,6 +11,15 @@ let sqSixPicked = false;
 let sqSevenPicked = false;
 let sqEightPicked = false;
 let sqNinePicked = false;
+let oneText = '';
+let twoText = '';
+let threeText = '';
+let fourText = '';
+let fiveText = '';
+let sixText = '';
+let sevenText = '';
+let eightText = '';
+let nineText = '';
 
 // cache the DOM elements
 const sqOneEl = document.getElementById('sqOne');
@@ -28,6 +37,7 @@ const chooseSquareEl = document.getElementById('square');
 const messageEl = document.getElementById('header');
 
 chooseSquareEl.addEventListener('click', render);
+replayEl.addEventListener('click', init);
 messageEl.innerText = 'X Goes First!'
 
 init();
@@ -44,6 +54,29 @@ function init(){
     sqEightPicked = false;
     sqNinePicked = false;
     messageEl.innerText = 'X Goes First!'
+
+    sqOneEl.innerText = '';
+    sqTwoEl.innerText = '';
+    sqThreeEl.innerText = '';
+    sqFourEl.innerText = '';
+    sqFiveEl.innerText = '';
+    sqSixEl.innerText = '';
+    sqSevenEl.innerText = '';
+    sqEightEl.innerText = '';
+    sqNineEl.innerText = '';
+
+    //Reset Replay button
+    replayEl.innerText = '';
+    replayEl.style.position = 'fixed';
+    replayEl.style.top = '0px';
+    replayEl.style.left = '100000px';
+    replayEl.style.border = '5px solid black';
+    replayEl.style.padding = '10px';
+    replayEl.style.fontSize = 'x-large';
+    replayEl.style.backgroundColor = 'lightgreen';
+
+    replayEl.removeEventListener('click', init);
+    chooseSquareEl.addEventListener('click', render);
 };
 
 // Eventlistener listening for user's click
@@ -138,9 +171,8 @@ function render(e){
                 }
                 //Changes square to appropriate mark
         sqNineEl.innerText = userChoice;
-    }
+    } 
     checkWin();
-    playerSwitch();
 };
 
 // Switches back and forth between users.
@@ -150,4 +182,51 @@ function playerSwitch(){
 }
 
 // Checks to see if either player won
+function checkWin(){
+    oneText = sqOneEl.innerText;
+    twoText = sqTwoEl.innerText;
+    threeText = sqThreeEl.innerText;
+    fourText = sqFourEl.innerText;
+    fiveText = sqFiveEl.innerText;
+    sixText = sqSixEl.innerText;
+    sevenText = sqSevenEl.innerText;
+    eightText = sqEightEl.innerText;
+    nineText = sqNineEl.innerText;
 
+    if ((oneText === twoText) && (oneText === threeText) && (oneText === userChoice)){
+        replay();
+    } else if ((oneText === fourText) && (oneText === sevenText) && (oneText === userChoice)){
+        replay();
+    } else if ((oneText === fiveText) && (oneText === nineText) && (oneText === userChoice)){
+        replay();
+    } else if ((threeText === fiveText) && (threeText === sevenText) && (threeText === userChoice)){
+        replay();
+    } else if ((threeText === sixText) && (threeText === nineText) && (threeText === userChoice)){
+        replay();
+    } else if ((nineText === eightText) && (nineText === sevenText) && (nineText === userChoice)){
+        replay();
+    } else if ((fourText === fiveText) && (fourText === sixText) && (fourText === userChoice)){
+        replay();
+    } else if ((twoText === fiveText) && (twoText === eightText) && (twoText === userChoice)){
+        replay();
+    } else {
+        playerSwitch();
+    }
+    
+}
+
+//Load up the replay option
+function replay(){
+    chooseSquareEl.removeEventListener('click', render);
+    replayEl.addEventListener('click', init);
+    
+    messageEl.innerText = `${userChoice}'s WON! Play Again?`;
+    replayEl.innerText = 'YES! Play Again';
+    replayEl.style.position = 'fixed';
+    replayEl.style.top = '100px';
+    replayEl.style.left = '100px';
+    replayEl.style.border = '5px solid black';
+    replayEl.style.padding = '10px';
+    replayEl.style.fontSize = 'x-large';
+    replayEl.style.backgroundColor = 'lightgreen';
+};
