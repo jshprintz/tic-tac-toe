@@ -1,7 +1,7 @@
 console.log('JS works');
+//Define starting variables
 
 let userChoice = 'X';
-let strMessage = '';
 let sqOnePicked = false;
 let sqTwoPicked = false;
 let sqThreePicked = false;
@@ -11,7 +11,6 @@ let sqSixPicked = false;
 let sqSevenPicked = false;
 let sqEightPicked = false;
 let sqNinePicked = false;
-
 
 // cache the DOM elements
 const sqOneEl = document.getElementById('sqOne');
@@ -26,25 +25,33 @@ const sqNineEl = document.getElementById('sqNine');
 
 const replayEl = document.getElementById('replay');
 const chooseSquareEl = document.getElementById('square');
-const messageEl = document.getElementById('header')
+const messageEl = document.getElementById('header');
 
-chooseSquareEl.addEventListener('click', chooseSquare);
+chooseSquareEl.addEventListener('click', render);
+messageEl.innerText = 'X Goes First!'
 
+init();
 
 function init(){
-
-};
-
-function render(){
-
+    userChoice = 'X';
+    sqOnePicked = false;
+    sqTwoPicked = false;
+    sqThreePicked = false;
+    sqFourPicked = false;
+    sqFivePicked = false;
+    sqSixPicked = false;
+    sqSevenPicked = false;
+    sqEightPicked = false;
+    sqNinePicked = false;
+    messageEl.innerText = 'X Goes First!'
 };
 
 // Eventlistener listening for user's click
-function chooseSquare(e){
+function render(e){
     if (e.target === sqOneEl){
         //Test to see if square was already picked
         if (sqOnePicked === true){
-            console.log('square one picked');
+            messageEl.innerText = 'That Square Was Already Picked!';
             return;
         } else {
             sqOnePicked = true;
@@ -54,7 +61,7 @@ function chooseSquare(e){
     } else if (e.target === sqTwoEl){
                 //Test to see if square was already picked
                 if (sqTwoPicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqTwoPicked = true;
@@ -64,7 +71,7 @@ function chooseSquare(e){
     } else if (e.target === sqThreeEl){
                 //Test to see if square was already picked
                 if (sqThreePicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqThreePicked = true;
@@ -74,7 +81,7 @@ function chooseSquare(e){
     } else if (e.target === sqFourEl){
                 //Test to see if square was already picked
                 if (sqFourPicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqFourPicked = true;
@@ -84,7 +91,7 @@ function chooseSquare(e){
     } else if (e.target === sqFiveEl){
                 //Test to see if square was already picked
                 if (sqFivePicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqFivePicked = true;
@@ -94,7 +101,7 @@ function chooseSquare(e){
     } else if (e.target === sqSixEl){
                 //Test to see if square was already picked
                 if (sqSixPicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqSixPicked = true;
@@ -104,7 +111,7 @@ function chooseSquare(e){
     } else if (e.target === sqSevenEl){
                 //Test to see if square was already picked
                 if (sqSevenPicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqSevenPicked = true;
@@ -114,7 +121,7 @@ function chooseSquare(e){
     } else if (e.target === sqEightEl){
                 //Test to see if square was already picked
                 if (sqEightPicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqEightPicked = true;
@@ -124,7 +131,7 @@ function chooseSquare(e){
     } else if (e.target === sqNineEl){
                 //Test to see if square was already picked
                 if (sqNinePicked === true){
-                    console.log('square one picked');
+                    messageEl.innerText = 'That Square Was Already Picked!';
                     return;
                 } else {
                     sqNinePicked = true;
@@ -132,9 +139,15 @@ function chooseSquare(e){
                 //Changes square to appropriate mark
         sqNineEl.innerText = userChoice;
     }
-
-    userChoice === 'X' ? userChoice = 'O' : userChoice = 'X';
-    
+    checkWin();
+    playerSwitch();
 };
 
+// Switches back and forth between users.
+function playerSwitch(){
+    userChoice === 'X' ? userChoice = 'O' : userChoice = 'X';
+    messageEl.innerText = `It's ${userChoice}'s Turn!`;
+}
+
+// Checks to see if either player won
 
