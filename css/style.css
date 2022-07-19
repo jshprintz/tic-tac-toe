@@ -1,6 +1,9 @@
+body {
+    background-image: radial-gradient(circle, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fafbff, #f4f7ff, #ecf4ff, #d5efff, #b7ebfd, #99e7f1, #80e3dd);
+}
+
 #header {
     text-align: center;
-    background-color: darkgrey;
 }
 
 p {
@@ -46,7 +49,6 @@ p {
     text-align: center;
     font-size: 1000%;
 }
-
 
 #sqFour {
     position: fixed;

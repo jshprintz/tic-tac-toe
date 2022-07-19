@@ -11,15 +11,15 @@ let sqSixPicked = false;
 let sqSevenPicked = false;
 let sqEightPicked = false;
 let sqNinePicked = false;
-let oneText = '';
-let twoText = '';
-let threeText = '';
-let fourText = '';
-let fiveText = '';
-let sixText = '';
-let sevenText = '';
-let eightText = '';
-let nineText = '';
+let b1 = '';
+let b2 = '';
+let b3 = '';
+let b4 = '';
+let b5 = '';
+let b6 = '';
+let b7 = '';
+let b8 = '';
+let b9 = '';
 
 // cache the DOM elements
 const sqOneEl = document.getElementById('sqOne');
@@ -36,14 +36,13 @@ const replayEl = document.getElementById('replay');
 const chooseSquareEl = document.getElementById('square');
 const messageEl = document.getElementById('header');
 
-chooseSquareEl.addEventListener('click', render);
-replayEl.addEventListener('click', init);
-messageEl.innerText = 'X Goes First!'
-
+// initialize program
 init();
 
 function init(){
-    userChoice = 'X';
+    // Reset booleans
+    userChoice = Math.floor(Math.random() * 2)
+    userChoice === 0 ? userChoice = 'X' : userChoice = 'O';
     sqOnePicked = false;
     sqTwoPicked = false;
     sqThreePicked = false;
@@ -53,8 +52,9 @@ function init(){
     sqSevenPicked = false;
     sqEightPicked = false;
     sqNinePicked = false;
-    messageEl.innerText = 'X Goes First!'
+    messageEl.innerText = `${userChoice}'s Goes First!`
 
+    // Reset inner squares
     sqOneEl.innerText = '';
     sqTwoEl.innerText = '';
     sqThreeEl.innerText = '';
@@ -75,6 +75,7 @@ function init(){
     replayEl.style.fontSize = 'x-large';
     replayEl.style.backgroundColor = 'lightgreen';
 
+    // Resets eventlisteners
     replayEl.removeEventListener('click', init);
     chooseSquareEl.addEventListener('click', render);
 };
@@ -84,7 +85,7 @@ function render(e){
     if (e.target === sqOneEl){
         //Test to see if square was already picked
         if (sqOnePicked === true){
-            messageEl.innerText = 'That Square Was Already Picked!';
+            dispAlreadyPicked();
             return;
         } else {
             sqOnePicked = true;
@@ -92,84 +93,84 @@ function render(e){
         //Changes square to appropriate mark
         sqOneEl.innerText = userChoice; 
     } else if (e.target === sqTwoEl){
-                //Test to see if square was already picked
-                if (sqTwoPicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqTwoPicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqTwoPicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqTwoPicked = true;
+        }
+        //Changes square to appropriate mark
         sqTwoEl.innerText = userChoice;
     } else if (e.target === sqThreeEl){
-                //Test to see if square was already picked
-                if (sqThreePicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqThreePicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqThreePicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqThreePicked = true;
+        }
+        //Changes square to appropriate mark
         sqThreeEl.innerText = userChoice;
     } else if (e.target === sqFourEl){
-                //Test to see if square was already picked
-                if (sqFourPicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqFourPicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqFourPicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqFourPicked = true;
+        }
+        //Changes square to appropriate mark
         sqFourEl.innerText = userChoice; 
     } else if (e.target === sqFiveEl){
-                //Test to see if square was already picked
-                if (sqFivePicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqFivePicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqFivePicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqFivePicked = true;
+        }
+        //Changes square to appropriate mark
         sqFiveEl.innerText = userChoice;
     } else if (e.target === sqSixEl){
-                //Test to see if square was already picked
-                if (sqSixPicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqSixPicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqSixPicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqSixPicked = true;
+        }
+        //Changes square to appropriate mark
         sqSixEl.innerText = userChoice;
     } else if (e.target === sqSevenEl){
-                //Test to see if square was already picked
-                if (sqSevenPicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqSevenPicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqSevenPicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqSevenPicked = true;
+        }
+        //Changes square to appropriate mark
         sqSevenEl.innerText = userChoice; 
     } else if (e.target === sqEightEl){
-                //Test to see if square was already picked
-                if (sqEightPicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqEightPicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqEightPicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqEightPicked = true;
+        }
+        //Changes square to appropriate mark
         sqEightEl.innerText = userChoice; 
     } else if (e.target === sqNineEl){
-                //Test to see if square was already picked
-                if (sqNinePicked === true){
-                    messageEl.innerText = 'That Square Was Already Picked!';
-                    return;
-                } else {
-                    sqNinePicked = true;
-                }
-                //Changes square to appropriate mark
+        //Test to see if square was already picked
+        if (sqNinePicked === true){
+            dispAlreadyPicked();
+            return;
+        } else {
+            sqNinePicked = true;
+        }
+        //Changes square to appropriate mark
         sqNineEl.innerText = userChoice;
     } 
     checkWin();
@@ -181,33 +182,50 @@ function playerSwitch(){
     messageEl.innerText = `It's ${userChoice}'s Turn!`;
 }
 
+//Display already picked message
+function dispAlreadyPicked(){
+    messageEl.innerText = 'That Square Was Already Picked!';
+};
+
 // Checks to see if either player won
 function checkWin(){
-    oneText = sqOneEl.innerText;
-    twoText = sqTwoEl.innerText;
-    threeText = sqThreeEl.innerText;
-    fourText = sqFourEl.innerText;
-    fiveText = sqFiveEl.innerText;
-    sixText = sqSixEl.innerText;
-    sevenText = sqSevenEl.innerText;
-    eightText = sqEightEl.innerText;
-    nineText = sqNineEl.innerText;
+    // Stores all the inner text in more readable strings
+    b1 = sqOneEl.innerText;
+    b2 = sqTwoEl.innerText;
+    b3 = sqThreeEl.innerText;
+    b4 = sqFourEl.innerText;
+    b5 = sqFiveEl.innerText;
+    b6 = sqSixEl.innerText;
+    b7 = sqSevenEl.innerText;
+    b8 = sqEightEl.innerText;
+    b9 = sqNineEl.innerText;
 
-    if ((oneText === twoText) && (oneText === threeText) && (oneText === userChoice)){
+    if ((b1 === b2) && (b1 === b3) && (b1 === userChoice)){  //first row horizontal
+        userChoice += `'s`;
         replay();
-    } else if ((oneText === fourText) && (oneText === sevenText) && (oneText === userChoice)){
+    } else if ((b1 === b4) && (b1 === b7) && (b1 === userChoice)){ //first column vertical
+        userChoice += `'s`;
         replay();
-    } else if ((oneText === fiveText) && (oneText === nineText) && (oneText === userChoice)){
+    } else if ((b1 === b5) && (b1 === b9) && (b1 === userChoice)){ //back slash diagnol
+        userChoice += `'s`;
         replay();
-    } else if ((threeText === fiveText) && (threeText === sevenText) && (threeText === userChoice)){
+    } else if ((b3 === b5) && (b3 === b7) && (b3 === userChoice)){ //forward slash diagnol
+        userChoice += `'s`;
         replay();
-    } else if ((threeText === sixText) && (threeText === nineText) && (threeText === userChoice)){
+    } else if ((b3 === b6) && (b3 === b9) && (b3 === userChoice)){ //third column vertical
+        userChoice += `'s`;
         replay();
-    } else if ((nineText === eightText) && (nineText === sevenText) && (nineText === userChoice)){
+    } else if ((b9 === b8) && (b9 === b7) && (b9 === userChoice)){ //third row horizontal
+        userChoice += `'s`;
         replay();
-    } else if ((fourText === fiveText) && (fourText === sixText) && (fourText === userChoice)){
+    } else if ((b4 === b5) && (b4 === b6) && (b4 === userChoice)){ //second row horizontal
+        userChoice += `'s`;
         replay();
-    } else if ((twoText === fiveText) && (twoText === eightText) && (twoText === userChoice)){
+    } else if ((b2 === b5) && (b2 === b8) && (b2 === userChoice)){ //second column vertical
+        userChoice += `'s`;
+        replay();
+    } else if ((b1 !== '') && (b2 !== '') && (b3 !== '') && (b4 !== '') && (b5 !== '') && (b6 !== '') && (b7 !== '') && (b8 !== '') && (b9 !== '')){ //no winners
+        userChoice = 'NOBODY'
         replay();
     } else {
         playerSwitch();
@@ -217,10 +235,12 @@ function checkWin(){
 
 //Load up the replay option
 function replay(){
+    //Turns off user click for board
     chooseSquareEl.removeEventListener('click', render);
+    //Turns on user click for replay button
     replayEl.addEventListener('click', init);
-    
-    messageEl.innerText = `${userChoice}'s WON! Play Again?`;
+    //Creates replay button
+    messageEl.innerText = `${userChoice} WON! Play Again?`;
     replayEl.innerText = 'YES! Play Again';
     replayEl.style.position = 'fixed';
     replayEl.style.top = '100px';
@@ -228,5 +248,5 @@ function replay(){
     replayEl.style.border = '5px solid black';
     replayEl.style.padding = '10px';
     replayEl.style.fontSize = 'x-large';
-    replayEl.style.backgroundColor = 'lightgreen';
+    replayEl.style.backgroundImage = 'linear-gradient(to top, #80e3dd, #99e7f1, #b7ebfd, #d5efff, #ecf4ff, #ecf4ff, #ecf4ff, #ecf4ff, #d5efff, #b7ebfd, #99e7f1, #80e3dd)';
 };
