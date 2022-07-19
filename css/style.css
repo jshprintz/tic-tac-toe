@@ -1,0 +1,88 @@
+h1 {
+    text-align: center;
+}
+
+#sqOne {
+    position: fixed;
+    left: 200px;
+    top: 200px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqTwo {
+    position: fixed;
+    left: 400px;
+    top: 200px;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqThree {
+    position: fixed;
+    left: 600px;
+    top: 200px;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqFour {
+    position: fixed;
+    left: 200px;
+    top: 400px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqFive {
+    position: fixed;
+    left: 400px;
+    top: 400px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqSix {
+    position: fixed;
+    left: 600px;
+    top: 400px;
+    border-bottom: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqSeven {
+    position: fixed;
+    left: 200px;
+    top: 600px;
+    border-right: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqEight {
+    position: fixed;
+    left: 400px;
+    top: 600px;
+    border-right: 5px solid black;
+    height: 200px;
+    width: 200px;
+}
+
+#sqNine {
+    position: fixed;
+    left: 600px;
+    top: 600px;
+    height: 200px;
+    width: 200px;
+}
