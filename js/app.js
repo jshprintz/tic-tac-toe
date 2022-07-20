@@ -1,7 +1,8 @@
 console.log('JS works');
 //Define starting variables
 
-let userChoice = 'X';
+let userChoice = '';
+
 let sqOnePicked = false;
 let sqTwoPicked = false;
 let sqThreePicked = false;
